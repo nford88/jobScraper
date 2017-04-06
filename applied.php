@@ -86,7 +86,7 @@ function filterTable($query)
               <td><?php echo $row['company'];?></td>
               <td><?php echo $row['salary'];?></td>
               <td><a href="<?php echo $row['url']; ?>" target="_blank" id="myBtn" class="btn btn-primary modal_button" data-id="<?php echo $row['url']; ?>">Link</a></td>
-              <td><?php echo $formatted_datetime = date("d/m/y", strtotime($row['dateApp']));?></td>
+              <td><?php echo date('d M Y', strtotime($row['dateApp']));?></td>
               <form class="butts" action="applied.php"  method="POST">
                   <td><input type="text" name="appName" value="<?php echo $row['applierName'];?>"></td>
                   <td><input type="text" name="appEmail" value="<?php echo $row['applierEmail'];?>"></td>     

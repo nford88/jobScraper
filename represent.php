@@ -85,12 +85,12 @@ function filterTable($query)
               <td><?php echo $row['location'];?></td>
               <td>
                 <div>
-                  <a href="<?php echo $row['url']; ?>" target="_blank" id="myBtn" class="btn btn-primary modal_button" data-id="<?php echo $row['url']; ?>">Link</a>
-                  <a class="descTogg btn btn-danger glyphicon glyphicon-text-height"></a>
+                  <a href="<?php echo $row['url']; ?>" target="_blank" id="myBtn" class="btn btn-primary glyphicon glyphicon-globe" data-id="<?php echo $row['url']; ?>"></a>
+                  <a class="descTogg btn btn-danger glyphicon glyphicon-resize-vertical"></a>
                 </div>
               </td>
               <td><?php echo $row['salary'];?></td>
-              <td><?php echo $row['dates'];?></td>
+              <td><?php echo date('d M Y', strtotime($row['dates']));?></td>
               <td><form class="butts" action="represent.php"  method="POST"> 
                 <div class="hide_class btn btn-danger glyphicon glyphicon-trash" id="<?php echo $row['url'];?>"></div>
                 <button class="btn btn-success glyphicon glyphicon-plus" id="apply_button" name="apply_button" value="<?php echo $row['url']; ?>"></button>

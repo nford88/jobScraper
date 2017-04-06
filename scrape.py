@@ -3,6 +3,7 @@ import MySQLdb
 from bs4 import BeautifulSoup
 import urllib2
 import time
+from datetime import datetime
 import pprint
 # import pdb
 # pdb.set_trace()
@@ -38,7 +39,7 @@ def jobbioParse():
 		url_root = 'http://jobbio.com'
 		url = url_root + url_box
 		salary = '-'
-		dates = time.strftime("%d/%m/%Y")
+		dates = time.strftime("%Y/%m/%d")
 
 		# jobbio = {'role':str(role), 'company': str(company), 'location': str(location), 'salary': str(salary), 'dates':dates, 'url': str(url)}
 		loggit = "INSERT IGNORE INTO jobScraper (role, company, location, url, salary, dates) VALUES (%s, %s, %s, %s, %s, %s)"
@@ -68,7 +69,8 @@ def irishjobsParse():
 		salary_box = div.find(attrs={'class': 'salary'})
 		salary = salary_box.text.strip().replace(u'\u2013',u'-') 
 		dates_box = div.find(attrs={'class': 'updated-time'})
-		dates = dates_box.text.strip().replace(u'\u2013',u'-').replace('Updated','') 
+		dates_ = dates_box.text.strip().replace(u'\u2013',u'-').replace('Updated ', '')
+		dates = datetime.strptime((dates_.strip()),'%d/%m/%Y').strftime('%Y-%m-%d') 
 		def desParse():
 				quote_page = url
 				req = urllib2.Request(quote_page, headers={ 'User-Agent': 'Mozilla/5.0' })
