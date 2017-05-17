@@ -1,8 +1,10 @@
 $(document).ready(function(){
- $(".hide_class").click(function(){
+  
+  $(".button-collapse").sideNav();
+
+  $(".hide_class").click(function(){
 
    var hide_url = $(this).attr('id');
-   console.log(hide_url);
    $.ajax({
     context: this,
     type:'POST',
@@ -10,10 +12,7 @@ $(document).ready(function(){
     data:'url='+hide_url,
     success:function(data) {
       if(data) {
-        if ($(this).closest('tr').nextAll(':has(.itemDesc):first').find('.itemDesc').is(":visible")) {
-          $(this).closest('tr').nextAll(':has(.itemDesc):first').find('.itemDesc').toggle(); 
-        }
-        $(this).closest('tr').remove();
+        $(this).closest('#jobCards').hide('slow');
       } 
       else { 
         alert("couldnt hide data from table")
@@ -22,12 +21,10 @@ $(document).ready(function(){
   });
  });
 
-$(".descTogg").click(function(){
-        $(this).closest('tr').nextAll(':has(.itemDesc):first').find('.itemDesc').toggle();
-  
- })
-   
- 
+  $(".descTogg").click(function(){
+    $(this).closest('tr').nextAll(':has(.itemDesc):first').find('.itemDesc').toggle();
+
+  })
 
 
 });

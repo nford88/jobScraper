@@ -38,7 +38,7 @@ def jobbioParse():
 		url_box =  div.find(attrs={'class': 'job-tile-actions'}).a['href']
 		url_root = 'http://jobbio.com'
 		url = url_root + url_box
-		salary = '-'
+		salary = 'Negotiable'
 		dates = time.strftime("%Y/%m/%d")
 
 		# jobbio = {'role':str(role), 'company': str(company), 'location': str(location), 'salary': str(salary), 'dates':dates, 'url': str(url)}
@@ -67,7 +67,7 @@ def irishjobsParse():
 		url_root = 'http://irishjobs.ie' 
 		url = url_root + url_box 
 		salary_box = div.find(attrs={'class': 'salary'})
-		salary = salary_box.text.strip().replace(u'\u2013',u'-') 
+		salary = salary_box.text.strip().replace(u'\u2013',u'-').replace('000', 'K') 
 		dates_box = div.find(attrs={'class': 'updated-time'})
 		dates_ = dates_box.text.strip().replace(u'\u2013',u'-').replace('Updated ', '')
 		dates = datetime.strptime((dates_.strip()),'%d/%m/%Y').strftime('%Y-%m-%d') 
