@@ -8,7 +8,7 @@ if(isset($_POST['search_button']))
   $search_result = filterTable($query); 
 }
 else {
-  $query = "SELECT jobScraper.role, jobScraper.company, jobScraper.salary, jobScraper.url, applied.dateApp, applied.applierName, applied.applierEmail FROM `jobScraper` LEFT JOIN `applied` ON jobScraper.url=applied.url WHERE jobScraper.apply=1";
+  $query = "SELECT jobScraper.role, jobScraper.company, jobScraper.salary, jobScraper.url, applied.dateApp, applied.applierName, applied.applierEmail FROM `jobScraper` LEFT JOIN `applied` ON jobScraper.url=applied.url WHERE jobScraper.apply=1 ORDER BY applied.dateApp DESC";
   $search_result = filterTable($query);
 }
 

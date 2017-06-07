@@ -86,8 +86,8 @@ def irishjobsParse():
 		loggit = "INSERT IGNORE INTO jobScraper (role, company, location, url, salary, dates, descr) VALUES (%s, %s, %s, %s, %s, %s, %s)"
 		cur.execute(loggit, (role, company, location, url, salary, dates, descr))		
 		db.commit()
-		#pp = pprint.PrettyPrinter(indent=4)
-		#pp.pprint(irishjobs)
+		# pp = pprint.PrettyPrinter(indent=4)
+		# pp.pprint(irishjobs)
 
 
 jobbioParse()

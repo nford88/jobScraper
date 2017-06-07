@@ -84,3 +84,7 @@ input {
 .card-action{
     text-align: center;
 }
+
+#loader_image{
+    text-align: center;
+}
